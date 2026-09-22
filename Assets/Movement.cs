@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    private float speed = 5f;
+    public float speed = 10f;
 
-    private float jumpSpeed = 500f;
+    public float jumpSpeed = 250f;
 
     private Vector3 moveDirection;
 
     private bool isGrounded = false;
+
+    public float acceleration = 0.01f;
 
     Rigidbody rb;
 
@@ -59,6 +61,10 @@ public class Movement : MonoBehaviour
 
             isGrounded = false;
         }
+    }
+    public void teleOrtho()
+    {
+
     }
 }
 

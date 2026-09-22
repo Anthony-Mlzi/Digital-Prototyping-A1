@@ -8,9 +8,15 @@ public class Perspective : MonoBehaviour
 {
     public bool swap = false;
 
+    public float playerPosX;
+
+    public Vector3 playerPos;
+
     public Camera camOne;
 
     public Camera camTwo;
+
+    public Movement player;
 
     public void Start()
     {
@@ -26,11 +32,11 @@ public class Perspective : MonoBehaviour
         {
             Debug.Log("Switch");
 
-            SwitchCameras();
+            SwitchCameras(player);
         }
     }
 
-    public void SwitchCameras()
+    public void SwitchCameras(Movement player)
     {
         camOne.enabled = !camOne.enabled;
         camTwo.enabled = !camTwo.enabled;

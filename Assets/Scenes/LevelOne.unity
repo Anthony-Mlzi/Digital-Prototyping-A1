@@ -167,8 +167,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swap: 0
+  playerPosX: 0
+  playerPos: {x: 0, y: 0, z: 0}
   camOne: {fileID: 963194227}
   camTwo: {fileID: 1965422587}
+  player: {fileID: 0}
 --- !u!1 &632400851
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,7 +186,7 @@ GameObject:
   - component: {fileID: 632400852}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -382,7 +385,7 @@ GameObject:
   - component: {fileID: 928876125}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -467,7 +470,7 @@ Transform:
   m_GameObject: {fileID: 928876124}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.26, y: -5.54, z: 1.88}
+  m_LocalPosition: {x: -0.67, y: -5.54, z: 1.88}
   m_LocalScale: {x: 10.330208, y: 6.0625, z: 41.672825}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -614,7 +617,7 @@ GameObject:
   - component: {fileID: 978259487}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -716,10 +719,10 @@ GameObject:
   - component: {fileID: 1732732615}
   - component: {fileID: 1732732614}
   - component: {fileID: 1732732613}
-  - component: {fileID: 1732732617}
   - component: {fileID: 1732732616}
   - component: {fileID: 1732732618}
   - component: {fileID: 1732732619}
+  - component: {fileID: 1732732620}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -786,7 +789,7 @@ Transform:
   m_GameObject: {fileID: 1732732611}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.655, y: -0.34, z: -3.135}
+  m_LocalPosition: {x: -1.41, y: -0.34, z: -3.135}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -817,18 +820,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1732732617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1732732611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c9db4bce7cba4f44a7949edbbf0c27b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &1732732618
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -869,8 +860,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swap: 0
+  playerPosX: 0
+  playerPos: {x: 0, y: 0, z: 0}
   camOne: {fileID: 0}
   camTwo: {fileID: 0}
+  player: {fileID: 0}
+--- !u!114 &1732732620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732732611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c9db4bce7cba4f44a7949edbbf0c27b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  jumpSpeed: 250
 --- !u!1 &1965422585
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,7 +985,7 @@ GameObject:
   - component: {fileID: 2045218690}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
