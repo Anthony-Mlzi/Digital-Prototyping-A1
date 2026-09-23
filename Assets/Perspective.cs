@@ -18,6 +18,8 @@ public class Perspective : MonoBehaviour
 
     public Movement player;
 
+    public Animator cameraTransition;
+
     public void Start()
     {
         camTwo.enabled = false;
@@ -32,7 +34,7 @@ public class Perspective : MonoBehaviour
         {
             Debug.Log("Switch");
 
-            SwitchCameras(player);
+            CameraTransition(player);
         }
     }
 
@@ -40,5 +42,10 @@ public class Perspective : MonoBehaviour
     {
         camOne.enabled = !camOne.enabled;
         camTwo.enabled = !camTwo.enabled;
+    }
+
+    public void CameraTransition(Movement player)
+    {
+        cameraTransition.SetFloat("transitionSpeed", 1.0f); 
     }
 }

@@ -172,6 +172,7 @@ MonoBehaviour:
   camOne: {fileID: 963194227}
   camTwo: {fileID: 1965422587}
   player: {fileID: 0}
+  cameraTransition: {fileID: 963194230}
 --- !u!1 &632400851
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,6 +489,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: camOne
   m_TagString: MainCamera
@@ -603,6 +605,27 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!95 &963194230
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 728711bd938c9af4f889e8484e991c20, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &978259486
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,9 +885,10 @@ MonoBehaviour:
   swap: 0
   playerPosX: 0
   playerPos: {x: 0, y: 0, z: 0}
-  camOne: {fileID: 0}
+  camOne: {fileID: 963194227}
   camTwo: {fileID: 0}
   player: {fileID: 0}
+  cameraTransition: {fileID: 963194230}
 --- !u!114 &1732732620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -879,6 +903,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   jumpSpeed: 250
+  acceleration: 0.01
 --- !u!1 &1965422585
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,7 +972,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
+  m_TargetDisplay: 1
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
