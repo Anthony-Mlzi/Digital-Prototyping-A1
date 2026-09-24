@@ -53,15 +53,15 @@ public class Perspective : MonoBehaviour
         camTwo.enabled = !camTwo.enabled;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "2DSwitcher")
+        if (other.gameObject.tag == "2DSwitcher")
         {
             Debug.Log("Switch2D");
 
             CameraTransition2D(player);
         }
-        else if (collision.gameObject.tag == "3DSwitcher")
+        else if (other.gameObject.tag == "3DSwitcher")
         {
             Debug.Log("Switch3D");
 
@@ -71,11 +71,14 @@ public class Perspective : MonoBehaviour
 
     public void CameraTransition2D(Movement player)
     {
-        cameraTransition.SetFloat("transitionSpeed", 1.0f);
+        cameraTransition.SetFloat("transitionSpeed", 0.75f);
+        cameraTransition.Play("CameraSmoothTransition", 0, 0.0f);
+           
     }
     
     public void CameraTransition3D(Movement player)
     {
-        cameraTransition.SetFloat("transitionSpeed", -1.0f);
+        cameraTransition.SetFloat("transitionSpeed", -0.75f);
+        cameraTransition.Play("CameraSmoothTransition", 0, 1.0f);
     }
 }
