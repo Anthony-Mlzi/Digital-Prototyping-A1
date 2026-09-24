@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 632400852}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Ground
+  m_TagString: 3DSwitcher
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -640,7 +640,7 @@ GameObject:
   - component: {fileID: 978259487}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Ground
+  m_TagString: 2DSwitcher
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -812,7 +812,7 @@ Transform:
   m_GameObject: {fileID: 1732732611}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.41, y: -0.34, z: -3.135}
+  m_LocalPosition: {x: -1.41, y: -0.34, z: -7.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -904,6 +904,7 @@ MonoBehaviour:
   speed: 10
   jumpSpeed: 250
   acceleration: 0.01
+  rb: {fileID: 1732732618}
 --- !u!1 &1965422585
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,7 +1011,7 @@ GameObject:
   - component: {fileID: 2045218690}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Ground
+  m_TagString: 2DSwitcher
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

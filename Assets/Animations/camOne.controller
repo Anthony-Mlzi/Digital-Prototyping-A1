@@ -23,9 +23,23 @@ AnimatorState:
   m_Motion: {fileID: 7400000, guid: be9fa1aef7440c246accd0987aea637a, type: 2}
   m_Tag: 
   m_SpeedParameter: transitionSpeed
-  m_MirrorParameter: 
+  m_MirrorParameter: isPerspective2D
   m_CycleOffsetParameter: 
   m_TimeParameter: transitionSpeed
+--- !u!1109 &-3838921215557918796
+AnimatorTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions: []
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -6630093329277086583}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 1
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -65,10 +79,11 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -6630093329277086583}
-    m_Position: {x: 290, y: 40, z: 0}
+    m_Position: {x: 310, y: -30, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
-  m_EntryTransitions: []
+  m_EntryTransitions:
+  - {fileID: -3838921215557918796}
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 70, y: -10, z: 0}

@@ -15,7 +15,7 @@ public class Movement : MonoBehaviour
 
     public float acceleration = 0.01f;
 
-    Rigidbody rb;
+    public Rigidbody rb;
 
     public void Start()
     {

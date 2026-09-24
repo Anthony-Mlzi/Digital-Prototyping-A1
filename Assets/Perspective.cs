@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class Perspective : MonoBehaviour
 {
@@ -26,16 +27,24 @@ public class Perspective : MonoBehaviour
     }
     public void Update()
     {
-        ChangePerspective();
+        ChangePerspective(player);
     }
-    public void ChangePerspective()
+    public void ChangePerspective(Movement player)
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            Debug.Log("Switch");
+            Debug.Log("Switch2D");
 
-            CameraTransition(player);
+            CameraTransition2D(player);
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Switch3D");
+
+            CameraTransition3D(player);
+        }
+
     }
 
     public void SwitchCameras(Movement player)
@@ -44,8 +53,29 @@ public class Perspective : MonoBehaviour
         camTwo.enabled = !camTwo.enabled;
     }
 
-    public void CameraTransition(Movement player)
+    private void OnCollisionEnter(Collision collision)
     {
-        cameraTransition.SetFloat("transitionSpeed", 1.0f); 
+        if (collision.gameObject.tag == "2DSwitcher")
+        {
+            Debug.Log("Switch2D");
+
+            CameraTransition2D(player);
+        }
+        else if (collision.gameObject.tag == "3DSwitcher")
+        {
+            Debug.Log("Switch3D");
+
+            CameraTransition3D(player);
+        }
+    }
+
+    public void CameraTransition2D(Movement player)
+    {
+        cameraTransition.SetFloat("transitionSpeed", 1.0f);
+    }
+    
+    public void CameraTransition3D(Movement player)
+    {
+        cameraTransition.SetFloat("transitionSpeed", -1.0f);
     }
 }
