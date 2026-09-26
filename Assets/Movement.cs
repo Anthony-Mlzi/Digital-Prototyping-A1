@@ -5,15 +5,18 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float speed = 10f;
-
-    public float jumpSpeed = 250f;
-
+    // How fast the player jumps
+    private float jumpSpeed = 350f;
+    // The players current move speed
+    private float moveSpeed = 2f;
+    // Acceleration applied to move speed over period of time during movement
+    private float acceleration = 15f;
+    // Direction of movement
     private Vector3 moveDirection;
-
+    // Check for grounded
     private bool isGrounded = false;
-
-    public float acceleration = 0.01f;
+    // Check for Movement
+    public bool isMoving = false;
 
     Rigidbody rb;
 
@@ -29,15 +32,47 @@ public class Movement : MonoBehaviour
 
     private void HandleMovement()
     {
+        // Function to handle all player movement
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
+        // Calculate movement direction of player
         moveDirection = new Vector3(horizontal, 0f, vertical).normalized;
 
-        transform.Translate(moveDirection * speed * Time.deltaTime);
+        // If player is moving, apply acceleration
+        if (horizontal != 0 || vertical != 0)
+        {
+            isMoving = true;
+
+            // calculate acceleration
+            moveSpeed += acceleration * Time.deltaTime;
+
+            Debug.Log(moveSpeed);
+
+            // Cap move speed
+            if (moveSpeed > 8)
+            {
+                moveSpeed = 8;
+            }
+        }
+        else
+        {
+            //Reset all acceleration if player stops moving
+
+            isMoving = false;
+
+            acceleration = 15f;
+
+            moveSpeed = 2f;
+        }
+
+        // translate all player movement compenents into character controller
+        transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
 
         if (Input.GetKeyDown("space") && isGrounded)
         {
+            moveSpeed -= 6f;
+
             Debug.Log("JUMP");
 
             rb.AddForce(Vector3.up * jumpSpeed);
@@ -47,8 +82,6 @@ public class Movement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("GROUND");
-
             isGrounded = true;
         }
     }
@@ -57,14 +90,8 @@ public class Movement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("NO GROUND");
-
             isGrounded = false;
         }
-    }
-    public void teleOrtho()
-    {
-
     }
 }
 
