@@ -18,7 +18,7 @@ public class Movement : MonoBehaviour
     // Check for Movement
     public bool isMoving = false;
 
-    Rigidbody rb;
+    public Rigidbody rb;
 
     public void Start()
     {
