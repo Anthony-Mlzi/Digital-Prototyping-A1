@@ -63,8 +63,6 @@ public class Movement : MonoBehaviour
             // calculate acceleration
             moveSpeed += acceleration * Time.deltaTime;
 
-            Debug.Log(moveSpeed);
-
             // Cap move speed
             if (moveSpeed > 8)
             {
