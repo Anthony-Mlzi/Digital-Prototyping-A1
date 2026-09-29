@@ -18,26 +18,42 @@ public class Movement : MonoBehaviour
     // Check for Movement
     public bool isMoving = false;
 
+    public Perspective camera;
+
     public Rigidbody rb;
 
     public void Start()
     {
         rb = GetComponent<Rigidbody>();
+        camera = GetComponent<Perspective>();
     }
 
     public void Update()
     {
-        HandleMovement();
+        HandleMovement(camera);
     }
 
-    private void HandleMovement()
+    public void HandleMovement(Perspective camera)
     {
         // Function to handle all player movement
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        // Calculate movement direction of player
-        moveDirection = new Vector3(horizontal, 0f, vertical).normalized;
+        if (camera.swap)
+        {
+            vertical = Input.GetAxis("Horizontal");
+            horizontal = Input.GetAxis("Vertical");
+            transform.position = new Vector3(4, transform.position.y, transform.position.z);
+        }
+        else
+        {
+            horizontal = Input.GetAxis("Horizontal");
+            vertical = Input.GetAxis("Vertical");
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        }
+
+            // Calculate movement direction of player
+            moveDirection = new Vector3(horizontal, 0f, vertical).normalized;
 
         // If player is moving, apply acceleration
         if (horizontal != 0 || vertical != 0)

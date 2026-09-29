@@ -15,42 +15,17 @@ public class Perspective : MonoBehaviour
 
     public Camera camOne;
 
-    public Camera camTwo;
-
     public Movement player;
 
     public Animator cameraTransition;
 
     public void Start()
     {
-        camTwo.enabled = false;
+        swap = false;
     }
     public void Update()
     {
-        ChangePerspective(player);
-    }
-    public void ChangePerspective(Movement player)
-    {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            Debug.Log("Switch2D");
 
-            CameraTransition2D(player);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Debug.Log("Switch3D");
-
-            CameraTransition3D(player);
-        }
-
-    }
-
-    public void SwitchCameras(Movement player)
-    {
-        camOne.enabled = !camOne.enabled;
-        camTwo.enabled = !camTwo.enabled;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -59,11 +34,15 @@ public class Perspective : MonoBehaviour
         {
             Debug.Log("Switch2D");
 
+            swap = true;
+
             CameraTransition2D(player);
         }
         else if (other.gameObject.tag == "3DSwitcher")
         {
             Debug.Log("Switch3D");
+
+            swap = false;
 
             CameraTransition3D(player);
         }
@@ -71,14 +50,14 @@ public class Perspective : MonoBehaviour
 
     public void CameraTransition2D(Movement player)
     {
-        cameraTransition.SetFloat("transitionSpeed", 0.75f);
+        cameraTransition.SetFloat("transitionSpeed", 0.60f);
         cameraTransition.Play("CameraSmoothTransition", 0, 0.0f);
            
     }
     
     public void CameraTransition3D(Movement player)
     {
-        cameraTransition.SetFloat("transitionSpeed", -0.75f);
+        cameraTransition.SetFloat("transitionSpeed", -0.60f);
         cameraTransition.Play("CameraSmoothTransition", 0, 1.0f);
     }
 }
