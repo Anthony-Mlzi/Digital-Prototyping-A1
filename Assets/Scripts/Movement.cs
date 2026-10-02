@@ -6,7 +6,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     // How fast the player jumps
-    private float jumpSpeed = 350f;
+    private float jumpSpeed = 550f;
     // The players current move speed
     private float moveSpeed = 2f;
     // Acceleration applied to move speed over period of time during movement
@@ -21,6 +21,8 @@ public class Movement : MonoBehaviour
     public Perspective camera;
 
     public Rigidbody rb;
+
+    public Animator cameraTransition;
 
     public void Start()
     {
@@ -85,7 +87,7 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKeyDown("space") && isGrounded)
         {
-            moveSpeed -= 6f;
+            moveSpeed += 1f;
 
             Debug.Log("JUMP");
 
